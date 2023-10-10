@@ -1,0 +1,35 @@
+class Animal {
+    void makeSound() {
+        System.out.println("Some generic animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Bark!");
+    }
+
+    void fetch() {
+        System.out.println("Fetching the ball");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal genericAnimal = new Animal();
+        Animal dogAnimal = new Dog(); // Polymorphism
+
+        genericAnimal.makeSound(); // Calls Animal's makeSound method
+        dogAnimal.makeSound(); // Calls Dog's overridden makeSound method
+
+        // dogAnimal can't call fetch() because the reference type is Animal
+        // dogAnimal.fetch(); // This would result in a compilation error
+
+        // To call fetch() on a Dog object, you need to cast it to Dog
+        if (dogAnimal instanceof Dog) {
+            Dog dog = (Dog) dogAnimal;
+            dog.fetch(); // Calls Dog's fetch method
+        }
+    }
+}
