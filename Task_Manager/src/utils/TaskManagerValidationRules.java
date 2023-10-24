@@ -51,9 +51,15 @@ public class TaskManagerValidationRules {
 	public static void removeTask(int rmTask, Map<Integer, TaskManger> taskMap) throws TaskManagerException {
 
 		Integer wrpd = rmTask;
-		TaskManger removeRef = taskMap.remove(wrpd);
-		if (removeRef == null)
+		if(taskMap.get(wrpd)==null)
 			throw new TaskManagerException("Given TaskID does NOT Exist !!");
+		else
+			taskMap.get(wrpd).setActive(false);
+		
+		
+//		TaskManger removeRef = taskMap.remove(wrpd);
+//		if (removeRef == null)
+//			throw new TaskManagerException("Given TaskID does NOT Exist !!");
 
 	}
 

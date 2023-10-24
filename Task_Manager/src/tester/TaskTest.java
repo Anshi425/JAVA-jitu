@@ -37,7 +37,7 @@ public class TaskTest {
 						if (taskMap.size() != 0) {
 							System.out.print("Enter TaskID: ");
 							removeTask(sc.nextInt(), taskMap);
-							System.out.println("Successfully removed Task !! \n");
+							System.out.println("Successfully deleted Task, Its marked as Inactive !! \n");
 						} else
 							System.out.println("Empty HashMap !! \n");
 
