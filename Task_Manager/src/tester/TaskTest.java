@@ -1,5 +1,6 @@
 package tester;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -28,8 +29,8 @@ public class TaskTest {
 						System.out.println("Enter taskName, desc, taskDate");
 						TaskManger ref = validAllInputs(sc.next(), sc.next(), sc.next(), "pending", true, taskMap);
 						taskMap.put(ref.getTaskID(), ref);
-						System.out.print("Successfully added task !! \n"
-								+ "TaskID of this task is: " + ref.getTaskID() + "\n\n");
+						System.out.print("Successfully added task !! \n" + "TaskID of this task is: " + ref.getTaskID()
+								+ "\n\n");
 						break;
 
 					case 2:
@@ -47,7 +48,6 @@ public class TaskTest {
 
 						System.out.print("Enter taskID and new status(PENDING, IN_PROGRESS, COMPLETED): ");
 						updateStatus(sc.nextInt(), sc.next(), taskMap);
-						
 
 						break;
 
@@ -61,16 +61,35 @@ public class TaskTest {
 						break;
 
 					case 5:
-//						
+
 						if (taskMap.size() != 0)
 							getAllPendingTasksForToday(taskMap);
 						else
 							System.out.println("Empty HashMap !!");
-						
+
 						break;
 
 					case 6:
+
+						if (taskMap.size() != 0) {
+							ArrayList<TaskManger> list = new ArrayList<>(taskMap.values());
+							getAllPendingTasksSortedByDate(list);
+						} else
+							System.out.println("Empty HashMap !!");
+
 						break;
+						
+						
+//					SORTING BY NAME--->
+//					case 7:
+//						
+//						if (taskMap.size() != 0) {
+//							ArrayList<TaskManger> list = new ArrayList<>(taskMap.values());
+//							getAllTasksSortedByName(list, taskMap);
+//						} else
+//							System.out.println("Empty HashMap !!");
+//
+//						break;
 
 					case 0:
 						System.out.println("Exiting ...");

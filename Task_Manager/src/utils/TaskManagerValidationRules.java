@@ -2,14 +2,20 @@ package utils;
 
 import java.time.LocalDate;
 import static java.time.LocalDate.*;
+
+//import java.lang.reflect.Array;
 import java.time.Period;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 import com.app.core.Status;
 import com.app.core.TaskManger;
 
+import custom_exceptions.CompareByName;
 import custom_exceptions.TaskManagerException;
+import custom_ordering.CompareByDate;
 
 public class TaskManagerValidationRules {
 
@@ -45,6 +51,24 @@ public class TaskManagerValidationRules {
 				System.out.println(elem.getValue());
 			}
 
+		}
+	}
+	
+	public static void getAllPendingTasksSortedByDate(ArrayList<TaskManger> list) {
+		
+		Collections.sort(list, new CompareByDate());
+		for(TaskManger index : list) {
+			if(index.getStatus().equals(Status.PENDING))
+				System.out.println(index);
+		}
+		
+	}
+	
+	public static void getAllTasksSortedByName(ArrayList<TaskManger> list) {
+		
+		Collections.sort(list, new CompareByName());
+		for(TaskManger index : list) {
+			System.out.println(index);
 		}
 	}
 
