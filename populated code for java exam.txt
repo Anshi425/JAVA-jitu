@@ -1,0 +1,15 @@
+1
+mens_tshirt 30 2023-05-25 L 400 Vans black
+2
+1 0
+4
+5
+1
+womens_jeans 0 2023-06-21 m 600 puma pink
+5
+4
+5
+3
+mens_tshirt vans 15
+5
+0
